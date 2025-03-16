@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout class="px-4">
+  <h1 class="title">Get In Touch</h1>
+  <noscript>This form needs JavaScript which is disabled</noscript>
+  <form class="flex flex-col gap-4" id="touch-form" action="mailto:qrier@bloodmagesoftware.de">
+    <label>Company name<input id="company-name" class="input" type="text" placeholder="example inc." /></label>
+    <label>Your name*<input id="person-name" class="input" type="text" required placeholder="Tim Sanders" /></label>
+    <label
+      >Your message*<textarea id="message" class="h-80 resize-none input" required placeholder="I am interested in Qrier, can I get a demo?"></textarea></label
+    >
+    <p>* Required fields</p>
+    <input class="py-2 px-4 text-white bg-black rounded-md cursor-pointer dark:text-black dark:bg-white w-fit" type="submit" value="Submit" />
+  </form>
+
+  <script>
+    const touchFormEl = document.getElementById("touch-form")!;
+
+    const companyNameEl = document.getElementById("company-name") as HTMLInputElement;
+    const personNameEl = document.getElementById("person-name") as HTMLInputElement;
+    const messageEl = document.getElementById("message") as HTMLTextAreaElement;
+
+    touchFormEl.addEventListener("submit", (ev) => {
+      ev.preventDefault();
+      ev.stopPropagation();
+      let subject = "Request Qrier";
+      let body = "Hello Bloodmage Software,\n\n";
+
+      body += messageEl.value.trim();
+      body += "\n\n";
+
+      body += personNameEl.value;
+      if (companyNameEl.value) {
+        subject += ": " + companyNameEl.value;
+        body += "\n" + companyNameEl.value;
+      }
+
+      const uri =
+        "mailto:qrier@bloodmagesoftware.de?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body.replace(/(?<!\r)\n/g, "\r\n"));
+
+      window.open(uri, "_blank");
+    });
+  </script>
+</Layout>

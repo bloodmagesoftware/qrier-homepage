@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+:root {
+    color-scheme: light dark;
+}
+
+.link {
+    @apply cursor-pointer hover:text-black underline dark:hover:text-white underline-offset-4;
+}
+
+.title {
+    @apply text-black dark:text-white font-bold text-2xl mb-6 text-balance;
+}
+
+.input {
+    @apply block py-2 px-4 my-1 w-full text-black bg-white rounded-sm dark:text-white dark:bg-black dark:outline-white outline outline-gray-700 focus:outline-2;
+}
+.input:user-invalid {
+    @apply outline-red-500 outline-2;
+}

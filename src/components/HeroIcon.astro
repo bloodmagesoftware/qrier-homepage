@@ -1,0 +1,78 @@
+---
+import { twMerge } from "tailwind-merge";
+
+interface Props {
+  class?: string;
+}
+---
+
+<div
+  class={twMerge(
+    "block relative w-64 h-64 rounded-xl shadow-2xl shadow-indigo-950 dark:shadow-black heroicon",
+    Astro.props.class,
+  )}
+>
+  <div
+    class="absolute inset-16 w-32 h-32 rounded-xl shadow-2xl shadow-indigo-950 heroicon__inner dark:shadow-black"
+  >
+  </div>
+</div>
+
+<style>
+  @keyframes fade__heroicon {
+    from {
+      opacity: 0.25;
+      translate: 0 2rem;
+      scale: 0.85;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+      scale: 1;
+    }
+  }
+
+  .heroicon {
+    background-image: linear-gradient(135deg, #d1b7ff, #ffb3fa);
+    animation: fade__heroicon 500ms ease-out forwards;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .heroicon {
+      background-image: linear-gradient(135deg, #0f071e, #3c0739);
+    }
+    .heroicon__inner {
+      background-image: linear-gradient(90deg, #630372, #c901b3);
+    }
+  }
+
+  @keyframes fade__heroicon__inner {
+    from {
+      opacity: 0;
+      translate: 0 10rem;
+      scale: 4;
+      rotate: -25deg;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+      scale: 1;
+      rotate: 45deg;
+    }
+  }
+
+  .heroicon__inner {
+    background-image: linear-gradient(90deg, #8500f4, #d400e0);
+    transform-origin: center center;
+    animation: fade__heroicon__inner 750ms ease-out forwards;
+    transition-property: transform;
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+    transition-behavior: allow-discrete;
+  }
+  @media (hover: hover) {
+    .heroicon:hover .heroicon__inner {
+      transform: rotate(-15deg) scale(0.75) !important;
+    }
+  }
+</style>

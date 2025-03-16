@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeroIcon from "../components/HeroIcon.astro";
+import syncSvg from "../assets/sync.svg";
+---
+
+<Layout>
+  <section aria-label="hero" class="overflow-y-visible px-4 mt-32 md:grid md:grid-cols-2 md:grid-rows-1 overflow-x-clip">
+    <div>
+      <div class="block mb-8">
+        <h1 class="block -ml-2 text-8xl font-bold text-black sm:inline dark:text-white">Qrier</h1>
+        <span class="block sm:inline">Pronunciation:&nbsp;[kuˈʁiːɐ̯]</span>
+      </div>
+      <p class="text-xl text-black dark:text-white text-balance">The inevitable next step in the evolution of business emails.</p>
+      <p>Our middleware works between your familiar email provider and the client applications on your devices.</p>
+    </div>
+    <HeroIcon class="my-16 mx-auto md:my-0" />
+  </section>
+
+  <section class="mx-4 mt-40">
+    <h2 class="title">Router: Control Who Sees What</h2>
+    <p>
+      With Qrier, you connect your existing email inboxes (like you do with any email program). Then, you create user accounts for your team members. The Router
+      lets you define rules that determine which emails each user can see. This ensures that sensitive information only reaches the right people, streamlining
+      workflows and reducing overhead when sharing addresses.
+    </p>
+    <p>An example use case is that you can receive the emails of your colleague who is on vacation or even reply on their behalf.</p>
+  </section>
+
+  <section class="mx-4 mt-40">
+    <h2 class="title">Client: Access Everywhere</h2>
+    <p>The Qrier client is available for all platforms (Mac, Windows, Linux, Android, iOS, Web) with the same features and user experience on all of them.</p>
+    <p>
+      Not everyone has to switch immediately, because Qrier does not replace your email provider, so clients like Outlook and Thunderbird will continue to work.
+      However, if you want to use the modern features of Qrier, you must use the Qrier client.
+    </p>
+  </section>
+
+  <img src={syncSvg.src} class="mx-auto mt-40 w-full pointer-events-none max-w-96 aspect-auto dark:invert" />
+</Layout>
