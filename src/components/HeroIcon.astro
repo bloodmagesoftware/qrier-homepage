@@ -6,16 +6,8 @@ interface Props {
 }
 ---
 
-<div
-  class={twMerge(
-    "block relative w-64 h-64 rounded-xl shadow-2xl shadow-indigo-950 dark:shadow-black heroicon",
-    Astro.props.class,
-  )}
->
-  <div
-    class="absolute inset-16 w-32 h-32 rounded-xl shadow-2xl shadow-indigo-950 heroicon__inner dark:shadow-black"
-  >
-  </div>
+<div class={twMerge("block relative w-64 h-64 rounded-xl shadow-2xl shadow-indigo-950 dark:shadow-black heroicon", Astro.props.class)}>
+  <div class="absolute inset-16 w-32 h-32 rounded-xl shadow-2xl shadow-indigo-950 heroicon__inner dark:shadow-black"></div>
 </div>
 
 <style>
